@@ -16,6 +16,9 @@ function M.config()
       right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
       offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
       separator_style = "thin",            -- | "thick" | "thin" | { 'any', 'any' },
+      numbers = "ordinal",
+      diagnostics = "nvim_lsp",
+      close_icon = '',
     },
     highlights = {
       fill = {

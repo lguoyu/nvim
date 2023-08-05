@@ -39,6 +39,7 @@ local on_attach = function(client, bufnr)
   nnoremap('gD', vim.lsp.buf.declaration, bufopts, "Go to declaration")
   nnoremap('gd', vim.lsp.buf.definition, bufopts, "Go to definition")
   nnoremap('gi', vim.lsp.buf.implementation, bufopts, "Go to implementation")
+  nnoremap('gr', vim.lsp.buf.references, bufopts, "Find References")
   nnoremap('K', vim.lsp.buf.hover, bufopts, "Hover text")
   nnoremap('<C-k>', vim.lsp.buf.signature_help, bufopts, "Show signature")
   nnoremap('<space>wa', vim.lsp.buf.add_workspace_folder, bufopts, "Add workspace folder")
@@ -59,14 +60,6 @@ local on_attach = function(client, bufnr)
   nnoremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
   vim.keymap.set('v', "<space>em", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
     { noremap=true, silent=true, buffer=bufnr, desc = "Extract method" })
-
-    -- Java extensions
-  nnoremap("<C-o>", jdtls.organize_imports, bufopts, "Organize imports")
-  nnoremap("<leader>vc", jdtls.test_class, bufopts, "Test class (DAP)")
-  nnoremap("<leader>vm", jdtls.test_nearest_method, bufopts, "Test method (DAP)")
-  nnoremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
-  nnoremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
-  nnoremap("<space>em", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], bufopts, "Extract method")
 end
 
 
