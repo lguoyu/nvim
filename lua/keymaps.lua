@@ -90,3 +90,27 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+-- gitsigns
+-- Navigation
+keymap('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
+keymap('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+
+-- Actions
+keymap('n', '<leader>hs', ':Gitsigns stage_hunk<CR>', opts)
+keymap('v', '<leader>hs', ':Gitsigns stage_hunk<CR>', opts)
+keymap('n', '<leader>hr', ':Gitsigns reset_hunk<CR>', opts)
+keymap('v', '<leader>hr', ':Gitsigns reset_hunk<CR>', opts)
+keymap('n', '<leader>hS', '<cmd>Gitsigns stage_buffer<CR>', opts)
+keymap('n', '<leader>hu', '<cmd>Gitsigns undo_stage_hunk<CR>', opts)
+keymap('n', '<leader>hR', '<cmd>Gitsigns reset_buffer<CR>', opts)
+keymap('n', '<leader>hp', '<cmd>Gitsigns preview_hunk<CR>', opts)
+keymap('n', '<leader>hb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', opts)
+keymap('n', '<leader>tb', '<cmd>Gitsigns toggle_current_line_blame<CR>', opts)
+keymap('n', '<leader>hd', '<cmd>Gitsigns diffthis<CR>', opts)
+keymap('n', '<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>', opts)
+keymap('n', '<leader>td', '<cmd>Gitsigns toggle_deleted<CR>', opts)
+
+-- Text object
+keymap('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>', opts)
+keymap('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>', opts)
